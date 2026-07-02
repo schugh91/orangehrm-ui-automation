@@ -8,11 +8,13 @@ class LoginPage:
         self.login_button = page.get_by_role("button", name = "Login")
 
 
-    def get_username(self, username):
+
+    def enter_username(self, username):
         self.username_input.fill(username)
 
-    def get_password(self, password):
+    def enter_password(self, password):
         self.password_input.fill(password)
 
-    def get_login_button(self):
+    def click_login_button(self):
         self.login_button.click()
+
