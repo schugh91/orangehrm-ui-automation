@@ -17,11 +17,11 @@ class PIMPage:
         self.confirm_delete_button = page.get_by_role("button", name = "Yes, Delete")
 
 
-    def get_pim_page(self):
+    def go_to_pim_page(self):
         self.pim_page.click()
 
 
-    def get_employee_list(self):
+    def go_to_employee_list(self):
         self.employee_list.click()
 
 #searching the employee
@@ -59,4 +59,4 @@ class PIMPage:
         self.confirm_delete_button.click()
 
     def get_no_records_found_text(self):
-        return self.page.get_by_text("No Records Found", exact=True)
+        return self.page.locator(".oxd-text.oxd-text--span").filter(has_text="No Records Found")

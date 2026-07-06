@@ -1,5 +1,5 @@
 import pytest
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 from pages.orangehrm_login_page import LoginPage
 from utils.config import USERNAME, PASSWORD, URL
 

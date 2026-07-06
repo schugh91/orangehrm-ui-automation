@@ -1,6 +1,6 @@
 from playwright.sync_api import expect
 
 def test_valid_login(logged_in_user):
-    expect(logged_in_user.locator("h6")).to_have_text("Dashboard")
+    expect(logged_in_user.get_by_role("heading", name="Dashboard")).to_be_visible()
 
 
