@@ -8,7 +8,7 @@ import pytest
 def test_invalid_login(page: Page,data):
     login_page = LoginPage(page)
     page.goto(URL)
-    login_page.get_username(data["username"])
-    login_page.get_password(data["password"])
-    login_page.get_login_button()
+    login_page.enter_username(data["username"])
+    login_page.enter_password(data["password"])
+    login_page.click_login_button()
     expect(page.get_by_text("Invalid credentials")).to_be_visible()
