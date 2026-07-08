@@ -17,6 +17,7 @@ class PIMPage:
         self.confirm_delete_button = page.get_by_role("button", name = "Yes, Delete")
 
 
+
     def go_to_pim_page(self):
         self.pim_page.click()
 
@@ -60,3 +61,23 @@ class PIMPage:
 
     def get_no_records_found_text(self):
         return self.page.locator(".oxd-text.oxd-text--span").filter(has_text="No Records Found")
+
+
+#editing/updating employee details
+    def edit_employee_button(self, emp_id):
+        employee_row = self.get_employee_result_row(emp_id)
+        employee_row.locator(".oxd-icon.bi-pencil-fill").click()
+
+    def select_dropdown_by_label_name (self,label_name, option_name):
+        dropdown = self.page.locator(".oxd-input-group").filter(has_text=label_name).locator(".oxd-select-text")
+        dropdown.click()
+        dropdown.scroll_into_view_if_needed()
+        self.page.locator(".oxd-select-option").filter(has_text = option_name).click()
+
+    def update_employee_details(self, nationality, marital_status):
+        self.select_dropdown_by_label_name("Nationality", nationality)
+        self.select_dropdown_by_label_name("Marital Status", marital_status)
+        self.save_button.first.click()
+
+    def get_selected_dropdown(self, label_name):
+        return self.page.locator(".oxd-input-group").filter(has_text=label_name).locator(".oxd-select-text-input")
