@@ -14,7 +14,7 @@ def test_add_new_employee(logged_in_user,data):
     pim_page.click_add_button()
     expect(logged_in_user.get_by_role("heading", name="Add Employee")).to_be_visible()
     pim_page.add_employee(data["firstname"], data["lastname"], emp_id)
-    expect(logged_in_user.get_by_role("heading", name="Personal Details")).to_be_visible()
+    expect(logged_in_user.get_by_role("heading", name="Personal Details")).to_be_visible(timeout=10000)
     expect(logged_in_user.get_by_placeholder("First Name")).to_have_value(data["firstname"])
     expect(logged_in_user.get_by_placeholder("Last Name")).to_have_value(data["lastname"])
     expect(logged_in_user.locator(".oxd-input-group").filter(has_text="Employee Id").locator("input")).to_have_value(emp_id)
