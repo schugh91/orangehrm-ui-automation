@@ -4,6 +4,7 @@ from pages.orangehrm_login_page import LoginPage
 from test_data.invalid_credentials import invalid_login_data
 import pytest
 
+@pytest.mark.smoke
 @pytest.mark.parametrize("data", invalid_login_data)
 def test_invalid_login(page: Page,data):
     login_page = LoginPage(page)

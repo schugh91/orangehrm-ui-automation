@@ -1,6 +1,8 @@
 from playwright.sync_api import expect
 from pages.orangehrm_dashboard_page import DashboardPage
+import pytest
 
+@pytest.mark.smoke
 def test_logout(logged_in_user):
     dashboard_page = DashboardPage(logged_in_user)
     dashboard_page.logout()

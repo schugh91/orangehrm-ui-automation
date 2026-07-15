@@ -4,6 +4,7 @@ from test_data.names_data import names_data
 import pytest
 from utils.data_generator import generate_employee_id
 
+@pytest.mark.regression
 @pytest.mark.parametrize("data", names_data)
 def test_delete_employee(logged_in_user,data):
    pim_page = PIMPage(logged_in_user)
